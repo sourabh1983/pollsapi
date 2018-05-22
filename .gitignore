@@ -1,0 +1,27 @@
+# Editors
+.idea
+.cache
+*.sublime-*
+
+pollsenv
+*ipynb*
+*pytest_cache*
+# Temp files
+__pycache__
+*.pyc
+.cache/
+.coverage
+
+# Environment files
+.envrc
+env.local
+.python-version
+*.egg-info
+
+# Database
+*.sqlite3
+
+# Test files
+htmlcov
+unittest-report
+.tox

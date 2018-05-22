@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  # Postgres Database
+  db:
+    image: postgres
+    environment:
+      POSTGRES_DB: polls_service
+      POSTGRES_USER: dev
+      POSTGRES_PASSWORD: dev
+      PGDATA: /var/lib/postgresql/data/pgdata
+    volumes:
+     - db-data:/var/lib/postgresql/data/pgdata
+    ports:
+      - 5432:5432
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/code
+    command: sh -c "cd /code && python manage.py migrate && python manage.py runserver -v 3 0.0.0.0:8000"
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+
+volumes:
+  db-data:

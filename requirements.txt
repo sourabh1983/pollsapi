@@ -1,0 +1,15 @@
+djangorestframework
+Django
+psycopg2
+ipython
+jupyter
+
+factory_boy
+django_extensions
+flake8
+isort
+pytest
+pytest-cov
+pytest-django
+pytest-flake8
+pytest-isort
