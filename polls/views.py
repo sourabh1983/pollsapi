@@ -39,13 +39,13 @@ class ChoiceDetail(generics.RetrieveDestroyAPIView):
 
     def get_queryset(self):
         qs = super().get_queryset().filter(
-            poll_id=self.kwargs.get('pk'),
-            pk=self.kwargs.get('choice_pk')
+            poll_id=self.kwargs.get('poll_pk'),
+            # pk=self.kwargs.get('choice_pk')
         )
         return qs
 
     def destroy(self, request, *args, **kwargs):
-        poll = Poll.objects.get(pk=self.kwargs.get('pk'))
+        poll = Poll.objects.get(pk=self.kwargs.get('poll_pk'))
         if not request.user == poll.created_by:
             raise PermissionDenied('You can not delete choice for this poll')
         return super().destroy(request, *args, **kwargs)
