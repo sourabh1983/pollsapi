@@ -3,7 +3,8 @@ import factory
 from django.contrib.auth.models import User
 from factory.django import DjangoModelFactory
 
-from polls.models import Poll
+from polls.models import Poll, Choice
+
 
 class UserFactory(DjangoModelFactory):
     class Meta:
@@ -22,3 +23,12 @@ class PollFactory(DjangoModelFactory):
     question = factory.Sequence(lambda n: 'Poll {}'.format(n))
     created_by = factory.SubFactory(UserFactory)
     pub_date = factory.LazyFunction(datetime.datetime.now)
+
+
+class ChoiceFactory(DjangoModelFactory):
+
+    class Meta:
+        model = Choice
+
+    poll = factory.SubFactory(PollFactory)
+    choice_text = factory.Sequence(lambda n: 'Choice {}'.format(n))
