@@ -1,6 +1,7 @@
 from django.urls import path
 
-from .views import PollList, PollDetail, ChoiceList, CreateVote, ChoiceDetail
+from .views import ChoiceDetail, ChoiceList, CreateVote, PollDetail, PollList
+
 
 app_name = 'polls'
 

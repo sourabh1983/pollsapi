@@ -1,9 +1,10 @@
 import datetime
+
 import factory
 from django.contrib.auth.models import User
 from factory.django import DjangoModelFactory
 
-from polls.models import Poll, Choice
+from polls.models import Choice, Poll
 
 
 class UserFactory(DjangoModelFactory):

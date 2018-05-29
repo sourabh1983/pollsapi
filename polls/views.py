@@ -5,8 +5,13 @@ from rest_framework import generics, status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from .models import Poll, Choice
-from .serializers import PollSerializer, ChoiceSerializer, VoteSerializer, UserSerializer
+from .models import Choice, Poll
+from .serializers import (
+    ChoiceSerializer,
+    PollSerializer,
+    UserSerializer,
+    VoteSerializer,
+)
 
 
 class PollList(generics.ListCreateAPIView):
@@ -22,6 +27,7 @@ class PollDetail(generics.RetrieveDestroyAPIView):
 class ChoiceList(generics.ListCreateAPIView):
     queryset = Choice.objects.all()
     serializer_class = ChoiceSerializer
+
     def get_queryset(self):
         qs = super().get_queryset().filter(poll_id=self.kwargs.get('pk'))
         return qs
@@ -50,6 +56,7 @@ class ChoiceDetail(generics.RetrieveDestroyAPIView):
             raise PermissionDenied('You can not delete choice for this poll')
         return super().destroy(request, *args, **kwargs)
 
+
 class CreateVote(generics.CreateAPIView):
     serializer_class = VoteSerializer
 
@@ -59,6 +66,7 @@ class CreateUser(generics.ListCreateAPIView):
     permission_classes = ()
     queryset = User.objects.all()
     serializer_class = UserSerializer
+
 
 class LoginView(APIView):
     permission_classes = ()
