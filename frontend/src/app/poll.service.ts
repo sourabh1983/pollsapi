@@ -8,7 +8,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class PollService {
 
-  private pollUrl = '/api/polls';
+  private pollUrl = '/api/polls/';
 
   constructor(private http: HttpClient) { }
 
