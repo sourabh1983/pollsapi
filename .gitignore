@@ -25,3 +25,5 @@ env.local
 htmlcov
 unittest-report
 .tox
+
+/static

@@ -19,7 +19,7 @@ services:
       dockerfile: Dockerfile
     volumes:
       - .:/code
-    command: sh -c "cd /code && python manage.py migrate && python manage.py runserver -v 3 0.0.0.0:8000"
+    command: sh -c "cd /code && python manage.py migrate && python manage.py collectstatic && python manage.py runserver -v 3 0.0.0.0:8000"
     ports:
       - "8000:8000"
     depends_on:

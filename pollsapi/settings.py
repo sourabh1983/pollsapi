@@ -138,6 +138,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
+ANGULAR_APP_DIR = os.path.join(BASE_DIR, 'frontend/dist')
+
+STATICFILES_DIRS = [
+    ('frontend', os.path.join(BASE_DIR, 'frontend/dist')),
+]
+
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 TEMPLATE_DIRS = (os.path.join(BASE_DIR,  'templates'),)
