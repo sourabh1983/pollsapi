@@ -25,5 +25,18 @@ services:
     depends_on:
       - db
 
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    ports:
+        - '4200:4200'
+        - '49153:49153'
+    volumes:
+        - .:/src/
+    environment:
+        - NODE_ENV=dev
+    command: sh -c "npm start"
+
 volumes:
   db-data:
