@@ -27,16 +27,18 @@ services:
 
   frontend:
     build:
-      context: .
-      dockerfile: frontend/Dockerfile
+      context: frontend
+      dockerfile: Dockerfile
     ports:
-        - '4200:4200'
-        - '49153:49153'
+        - "4200:4200"
+        - "49153:49153"
     volumes:
         - .:/src/
     environment:
         - NODE_ENV=dev
-    command: sh -c "npm start"
+    command: sh -c "cd /src/frontend && npm start"
+    depends_on:
+      - web
 
 volumes:
   db-data:
