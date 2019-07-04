@@ -9,6 +9,7 @@ This project can be helpful for developers who are looking for an example projec
 You need to have Python 3.6 and Docker installed in order to run this program and tests
 
 ### Run program on your machine
+
 Below will create dist directory in frontend folder and package frontend application
 
 `npm run build`
@@ -17,6 +18,8 @@ Below will bring up django(port 8000) and angular app(port 4200) and will also c
 ```
 docker-compose up
 ```
+If everything is well, you can access applicaton on localhost:8000
+
 ### Preparing application to run
 
 `docker-compose build`
