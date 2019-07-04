@@ -17,22 +17,22 @@ Below will bring up django(port 8000) and angular app(port 4200) and will also c
 ```
 docker-compose up
 ```
-## Preparing application to run
+### Preparing application to run
 
 `docker-compose build`
 
-## Run backend unit tests using pytest
+### Run backend unit tests using pytest
 
 `docker-compose run web pytest`
 
-## Run frontend unit tests using karma test runner
+### Run frontend unit tests using karma test runner
 
 `docker-compose run frontend npm run test`
 
-## Versioning
+### Versioning
 
 We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
 
-## Authors
+### Authors
 
 * **Sourabh Kumar**
